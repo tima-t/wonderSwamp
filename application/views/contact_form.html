@@ -1,0 +1,122 @@
+<body>
+	<div id="home_page">
+
+		<div id="upper_air"></div>
+		<div id="home_body">
+			<div id="top-nav" class="row">
+				<div class="col-lg-2 col-lg-offset-2 ">
+					<!--Svg-->
+					<img src="<?= base_url('assets/images/logo.svg') ?>" alt="" height="150px">
+					<!--End-->
+				</div>
+				<div id="home_close" class="col-lg-2 col-lg-offset-5 text-right">
+					<a style="text-decoration:none; color:black;" href="
+<?=base_url('welcome') ?>">
+						<span>
+	<img style="padding-top: 20px;" src="<?= base_url('assets/images/Close.png') ?>" alt="close button">
+	</span>
+					</a>
+				</div>
+			</div>
+			<div class="row pad40">
+				<div class="row">
+				
+					<div id="home_menu" class="col-lg-2 col-lg-offset-2">
+						<a href="../home" style="text-decoration: none"><span class="boldT" style="font-size: 18pt; color:#f20909"><</span> <span style="font-size: 18pt; color:#383F94">BACK</span></a>
+					</div>
+				</div>
+				<div class="row">
+				<div class="col-lg-2 col-lg-offset-3 contact_div">
+					<div style="padding-bottom: 40px;" class="text_18">CONTACT INFORMATION</div>
+					<div style="padding-bottom: 10px;" class="row">
+						<input type="email" class="form-control" placeholder="Email">
+					</div>
+					<div style="padding-bottom: 30px;" class="row">
+						<div class="col-lg-4 input_wrapper"><input type="text" class="form-control" placeholder="Day"></div>
+						<div class="col-lg-4 input_wrapper"><input type="text" class="form-control" placeholder="Month"></div>
+						<div class="col-lg-4 input_wrapper"><input type="text" class="form-control" placeholder="Year"></div>
+					</div>
+
+					<div style="padding-bottom: 10px;" class="text_18">CREATIVE BREAF</div>
+					<div style="padding-bottom: 20px;" class="row">
+						<input type="text" class="form-control" placeholder="PROJECT NAME">
+					</div>
+
+					<div style="padding-bottom: 20px;" class="text_16">Background/Marketoverview/<br> Key Competitors</div>
+					<div class="row">
+						<textarea type="text" rows="3" class="form-control" placeholder=""/></textarea>
+					</div>
+
+				</div>
+				<div class="col-lg-2 contact_div">
+					<div style="padding-bottom: 10px;" class="text_16">Background/Marketoverview/<br> Key Competitors</div>
+					<div class="row">
+						<textarea type="text" rows="3" class="form-control" placeholder=""/></textarea>
+					</div>
+					<div style="padding-bottom: 10px;" class="text_16">Background/Marketoverview/<br> Key Competitors</div>
+					<div class="row">
+						<textarea type="text" rows="3" class="form-control" placeholder=""/></textarea>
+					</div>
+					<div style="padding-bottom: 10px;" class="text_16">Background/Marketoverview/<br> Key Competitors</div>
+					<div class="row">
+						<textarea type="text" rows="3" class="form-control" placeholder=""/></textarea>
+					</div>
+				</div>
+				<div class="col-lg-2 contact_div">
+					<div style="padding-bottom: 10px;" class="text_16">Background/Marketoverview/<br> Key Competitors</div>
+					<div class="row">
+						<textarea type="text" rows="3" class="form-control" placeholder=""/></textarea>
+					</div>
+					<div style="padding-bottom: 10px;" class="text_16">Background/Marketoverview/<br> Key Competitors</div>
+					<div class="row">
+						<textarea type="text" rows="3" class="form-control" placeholder=""/></textarea>
+					</div>
+					<div style="padding-bottom: 10px;" class="text_16">Background/Marketoverview/<br> Key Competitors</div>
+					<div class="row">
+						<textarea type="text" rows="3" class="form-control" placeholder=""/></textarea>
+					</div>
+				</div>
+				</div>
+			</div>
+
+			<div id="home_lang" style="padding-top:80px;" class="row">
+				<div id="" style="font-weight: 600" class="col-lg-2 col-lg-offset-2">ENGLISH</div>
+				<div id="" class="col-lg-2 col-lg-offset-5"><span class="boldT" style="font-size: 40pt; color:#f20909">SEND</span> <span style="font-size: 40pt; color:#383F94">></span></div>
+			</div>
+		</div>
+
+		<div id="bottom_air"></div>
+
+	</div>
+
+	<script>
+		var tempHeight;
+		var sNewVal,
+			pCounter = $("#counter"),
+			counterVal = pCounter.text();
+
+		console.log(counterVal);
+		nCounterVal = +counterVal.split(" ").join("");
+		setInterval(function () {
+			sNewVal = ++nCounterVal + "";
+			sNewVal = sNewVal[0] + sNewVal[1] + " " + sNewVal[2] + sNewVal[3] + sNewVal[4] + " "
+				+ sNewVal[5] + sNewVal[6] + sNewVal[7] + " " + sNewVal[8] + sNewVal[9] + sNewVal[10];
+			pCounter.text(sNewVal);
+		}, 1000);
+
+
+		tempHeight = $(window).height() - 490;
+		$(".pad40").css("height", tempHeight + "px");
+
+		$(window).resize(function () {
+			$this = $(this);
+			console.log("resize", $this);
+			console.log($this.width());
+			console.log("height", $this.height());
+			tempHeight = $this.height() - 490;
+			$(".pad40").css("height", tempHeight + "px");
+		})
+	</script>
+</body>
+
+</html>

@@ -1,0 +1,187 @@
+<body>
+	<div id="home_page">
+
+		<div id="upper_air"></div>
+		<div id="home_body">
+			<div id="top-nav" class="row">
+				<div class="col-lg-2 col-lg-offset-2 ">
+					<!--Svg-->
+					<img src="<?= base_url('assets/images/logo.svg') ?>" alt="" height="150px">
+					<!--End-->
+				</div>
+				<div id="home_close" class="col-lg-2 col-lg-offset-5 text-right">
+					<a style="text-decoration:none; color:black;" href="
+<?=base_url('welcome') ?>">
+						<span>
+	<img style="padding-top: 20px;" src="<?= base_url('assets/images/Close.png') ?>" alt="close button">
+	</span>
+					</a>
+				</div>
+			</div>
+			<div class="row pad40">
+				<div id="home_menu" class="col-lg-2 col-lg-offset-2">
+					<ul>
+						<li class="menu_buttons" data-name="work">Work</li>
+						<li class="menu_buttons" data-name="about">About</li>
+						<li class="menu_buttons" data-name="services">Services</li>
+						<li class="menu_buttons" data-name="contacts">Contacts</li>
+						<li class="menu_buttons" data-name="clients">Clients</li>
+					</ul>
+				</div>
+
+
+				<div id="contacts_sub" class="col-lg-4 " style="display:none">
+					<ul>
+						<li>FOR MORE INFORMATION</li>
+						<li>
+							<span><img src="<?= base_url('assets/images/phone.svg') ?>"  style="height:20pt" alt="phone"></span> Phone
+						</li>
+						<li> <span><img src="<?= base_url('assets/images/location.svg') ?>"  style="height:20pt" alt="phone"></span> Address 6 Vasil Levski blvrd Sofia</li>
+						<li> <span><img src="<?= base_url('assets/images/mail.svg') ?>"  style="height:20pt" alt="phone"></span> E-mail:hello@wonderswamp.com</li>
+					</ul>
+					<a href="./contact/form" style="text-decoration: none;">
+					<span style="color:#f20909; font-size: 41pt;">SET UP A</span> <br>
+					<span style=" color: black; font-size: 56pt">MEETING </span>
+					<span <span style=" position:absolute; top:40%; right:16%;"><i style="font-size: 10em; color:#383F94" class="fa fa-2x fa-angle-right" aria-hidden="true"></i>
+					</a>
+</span>
+				</div>
+
+				<div id="work_sub" class="col-lg-3 " style="display:none">
+					<ul>
+						<li class="menu_buttons" data-name="showreal">Showreal</li>
+						<li class="menu_buttons" data-name="case_stories">Case Stories</li>
+						<li class="menu_buttons" data-name="youtube">YouTube Channels</li>
+					</ul>
+				</div>
+
+				<div id="work_sub_sub" class="col-lg-3 " style="display:none">
+					<ul>
+						<li class="menu_buttons" data-name="showreal">Shell</li>
+						<li class="menu_buttons" data-name="case_stories">Visa</li>
+						<li class="menu_buttons" data-name="youtube">Alternative</li>
+						<li class="menu_buttons" data-name="showreal">TICKEY</li>
+						<li class="menu_buttons" data-name="case_stories">DC Photography</li>
+						<li class="menu_buttons" data-name="youtube">Grivas Nuts</li>
+						<li class="menu_buttons" data-name="case_stories">More .. </li>
+
+					</ul>
+				</div>
+
+
+				<div id="home_cont" class="col-lg-5 col-lg-offset-2">
+					<div class="vertical_content">seconds</div>
+					<b> <i class="fa fa-circle" aria-hidden="true" style="color:#f20909"></i> &nbsp;&nbsp;REC TIME</b>
+					<br>
+					<b><span style="font-size:45pt " id="counter" >45 123 123 123</span>
+</b>
+					<div style="color:#f20909; padding-top:50px; font-size:26pt; font-weight:lighter"> WE create your imagination <br> into reality!
+					</div>
+
+				</div>
+			</div>
+			<div id="home_lang" class="row">
+				<div id=""  style="font-weight: 600" class="col-lg-2 col-lg-offset-2">ENGLISH</div>
+			</div>
+		</div>
+
+		<div id="bottom_air"></div>
+
+	</div>
+
+	<script>
+		var tempHeight;
+		var sNewVal,
+			pCounter = $("#counter"),
+			counterVal = pCounter.text();
+
+		console.log(counterVal);
+		nCounterVal = +counterVal.split(" ").join("");
+		setInterval(function () {
+			sNewVal = ++nCounterVal + "";
+			sNewVal = sNewVal[0] + sNewVal[1] + " " + sNewVal[2] + sNewVal[3] + sNewVal[4] + " "
+				+ sNewVal[5] + sNewVal[6] + sNewVal[7] + " " + sNewVal[8] + sNewVal[9] + sNewVal[10];
+			pCounter.text(sNewVal);
+		}, 1000);
+
+
+
+		//nav menu
+
+		$(".menu_buttons").click(function () {
+			//body resize
+			$(".menu_buttons").css("color", "#383F94");
+			$("#home_cont").hide();
+			$("#work_sub").hide();
+			$("#contacts_sub").hide();
+			$("#work_sub_sub").hide();
+			$(this).css("color", "#f20909");
+			console.log($(this));
+			console.log($(this).attr("data-name"));
+			switch ($(this).attr("data-name")) {
+				case "work":
+					console.log("here");
+					$("#work_sub").fadeIn("slow");
+					break;
+
+				case "about":
+					window.location.href = "./about";
+					break;
+
+				case "services":
+					window.location.href = "./service";
+					break;
+
+				case "contacts":
+					$("#contacts_sub").fadeIn("slow");
+					break;
+
+				case "clients":
+					break;
+
+				case "showreal":
+					window.location.href = "./";
+					break;
+
+				case "case_stories":
+					$("#work_sub").show();
+					$("#work_sub_sub").fadeIn("slow");
+
+					break;
+
+				case "youtube":
+					console.log("here YouTube");
+					window.location.href = "https://www.youtube.com/watch?v=JGwWNGJdvx8";
+					break;
+
+
+					break;
+			}
+
+		})
+		tempHeight =  $(window).height() - 490;
+		$(".pad40").css("height", tempHeight + "px");
+
+		$(window).resize(function () {
+			$this = $(this);
+			console.log("resize", $this);
+			console.log($this.width());
+			console.log("height", $this.height());
+			tempHeight = $this.height() - 490 ;
+			$(".pad40").css("height", tempHeight + "px");
+			// $('body').css('height', $this.height() +"px");
+			// if ($this.width() > 1750) {
+			// 	$('body').css('zoom', 1.25);
+			// 	console.log("zoom 1.1");
+			// 	console.log($this.width());
+			// } else {
+			// 	$('body').css('zoom', 1);
+			// 	console.log("zoom 1");
+			// 	console.log($this.width());
+			// }
+		})
+
+	</script>
+</body>
+
+</html>

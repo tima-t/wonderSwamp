@@ -1,0 +1,127 @@
+<!--<body id="service_body" style="background: url(./assets/images/back.jpg) no-repeat center center fixed; 
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover; position:relative;border-left: 1px solid white; border-right: 1px solid white; border-top:1px solid white; ">-->
+  <!--<body>-->
+
+<div  style="background: url(./assets/images/back.jpg) no-repeat center center fixed; 
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover; position:relative;border-left: 1px solid white; border-right: 1px solid white; border-top:1px solid white;"  class="wrapT">
+	<div id="welcome_header" style="background: transparent;">
+		<div class="row">
+			<div class="col-lg-2 ">
+				<!--Svg Logo-->
+				<img id="welcome_logo" src="<?=base_url('assets/images/wonderswamp.svg') ?>" alt="">
+				<!--Svg Logo-->
+			</div>
+			<div style="font-weight: lighter" class="col-lg-offset-3 col-lg-2"></div>
+			<div class="col-lg-offset-2 col-lg-3 text-right">
+				<div id="welcome_resolution"><button id="raw_btn">RAW</button> <button>16:9</button></div>
+				<button style="border:none">
+					 <img class="welcome_icon" src="<?= base_url('assets/images/HD.svg') ?>"  alt="">
+				</button>
+				<button style="border:none">
+					 <img class="welcome_icon" src="<?= base_url('assets/images/camera.svg') ?>"  alt="">
+				</button>
+			</div>
+		</div>
+	</div>
+	<div style="position:relative;" id="welcome_video">
+			<div id="center_div" style="position:absolute; top:30%;left:20%;">
+		<div class="row" > <div class="col-lg-2 text_76_red">OUR	</div>
+		 	<div style="padding-top: 20px;" class="col-lg-6 col-lg-offset-4">
+				 <img class="welcome_icon " src="<?= base_url('assets/images/camera.svg') ?>"  alt=""> <img class="welcome_icon" src="<?= base_url('assets/images/camera.svg') ?>"  alt="">
+				 <img class="welcome_icon " src="<?= base_url('assets/images/camera.svg') ?>"  alt=""> <img class="welcome_icon" src="<?= base_url('assets/images/camera.svg') ?>"  alt="">
+			</div>
+		</div>
+		<div class="row text_76_white">SERVICES <img class="welcome_icon" src="<?= base_url('assets/images/camera.svg') ?>"  alt=""> <img class="welcome_icon" src="<?= base_url('assets/images/camera.svg') ?>"  alt=""> 
+		<img class="welcome_icon" src="<?= base_url('assets/images/camera.svg') ?>"  alt=""> <img class="welcome_icon" src="<?= base_url('assets/images/camera.svg') ?>"  alt=""></div>
+	</div>
+	</div>
+	<div id="welcome_footer"  style="background: transparent;">
+		<div class="row">
+			<div id="rec" class="col-lg-2 ">
+				<i class="fa fa-battery-full" style="color:white;" aria-hidden="true"></i> <span class="boldT">38 min</span>
+				<span id="rec_abs" style=" position:absolute;  top:-45px; left:15px;"> <i class="fa  fa-circle" aria-hidden="true" style="color:red"></i> REC 
+</span>
+			</div>
+			<div class="col-lg-offset-3 col-lg-2 lightT"></div>
+			<div class="col-lg-offset-3 col-lg-2 text-right">
+				<a style="text-decoration: none; color:white;" href="
+<?=base_url('home') ?>">
+					<span class="boldT" style="vertical-align: middle; padding-right: 60px;">MENU</span>
+					<!--menu svg-->
+					<span style=" position:absolute; top:0; right:15px;">
+					<img id="welcome_menu" src="<?= base_url('assets/images/menu.svg') ?>" height="50px" alt="main menu link">
+</span>
+				</a>
+				<!--menu svg-->
+			</div>
+		</div>
+
+	</div>
+	<div style="border-top:1px solid white; border-left: 1px solid white; top:20px;left:20px;" class="photo_border"></div>
+	<div style="border-top:1px solid white; border-right: 1px solid white; top:20px;right:20px;" class="photo_border"></div>
+	<div style="border-bottom:1px solid white; border-left: 1px solid white; bottom:20px;left:20px;" class="photo_border"></div>
+	<div style="border-bottom:1px solid white; border-right: 1px solid white; bottom:20px;right:20px;" class="photo_border"></div>
+</div>
+<!--<div>bal lalal ldal
+	dasdasd
+	adsas
+	dasdasdsd
+	asd
+</div>-->
+	<script>
+		var tempHeight;
+		tempHeight = $(window).height() - 257;
+		$("#welcome_video").css("height", tempHeight + "px");
+
+		$(window).resize(function () {
+			$this = $(this);
+			console.log("resize", $this);
+			console.log($this.width());
+			console.log("height", $this.height());
+			tempHeight = $this.height() - 257;
+			$("#welcome_video").css("height", tempHeight + "px");
+			// $('body').css('height', $this.height() +"px");
+			// if ($this.width() > 1750) {
+			// 	$('body').css('zoom', 1.25);
+			// 	console.log("zoom 1.1");
+			// 	console.log($this.width());
+			// } else {
+			// 	$('body').css('zoom', 1);
+			// 	console.log("zoom 1");
+			// 	console.log($this.width());
+			// }
+		})
+
+		document.getElementById("wonder_video").loop = true;
+		document.getElementById("wonder_video").muted = true;
+
+		$("#volume_control").click(function () {
+			document.getElementById("wonder_video").muted = !document.getElementById("wonder_video").muted;
+			if (document.getElementById("wonder_video").muted) {
+				$("#volume_control img").attr("src", "<?=base_url('assets/images/sound-on.svg') ?>");
+			}
+			else {
+				$("#volume_control img").attr("src", "<?=base_url('assets/images/sound-off.svg') ?>");
+			}
+
+		})
+
+		$('#welcome_menu').hover(
+			function () {
+				$(this).attr('src', "<?= base_url('assets/images/menu-h.svg') ?>");
+			},
+			function(){
+				$(this).attr('src', "<?= base_url('assets/images/menu.svg') ?>");
+			}
+		)
+	</script>
+
+</body>
+
+</html>

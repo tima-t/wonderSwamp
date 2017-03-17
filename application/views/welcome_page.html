@@ -1,0 +1,190 @@
+<body style=" position:relative;border-left: 1px solid white; border-right: 1px solid white; border-top:1px solid white; ">
+
+
+	<div id="welcome_header">
+		<div class="row">
+			<div class="col-xs-2 col-sm-2  col-md-2 col-lg-2 ">
+				<!--Svg Logo-->
+				<img id="welcome_logo" src="<?=base_url('assets/images/wonderswamp.svg') ?>" alt="">
+				<!--Svg Logo-->
+			</div>
+			<div id="show_real" style="font-weight: lighter" class="col-sm-2 col-sm-offset-3  col-md-offset-3  col-md-2 col-lg-offset-3 col-lg-2 text-center">Showreal 2017</div>
+			<div id="top_icons" class="col-sm-offset-0 col-sm-5 col-md-offset-1 col-md-4  col-lg-offset-2 col-lg-3 text-right">
+				<!--<div id="welcome_resolution"><button id="raw_btn">RAW</button> <button>16:9</button></div>-->
+				<button style="border:none">
+					 <img id="raw_img" class="welcome_icon" src="<?= base_url('assets/images/raw.svg') ?>"  alt="">
+				</button>
+				<button style="border:none">
+					 <img class="welcome_icon" src="<?= base_url('assets/images/HD.svg') ?>"  alt="">
+				</button>
+				<button style="border:none">
+					 <img class="welcome_icon" src="<?= base_url('assets/images/camera.svg') ?>"  alt="">
+				</button>
+			</div>
+
+			<div class="col-xs-4 col-xs-offset-6 hiden_el show_mobile text-right">
+				<span id="rec_abs" style="font-size: 15pt;"> <i class="fa  fa-circle" aria-hidden="true" style="color:red"></i> REC
+					</span>
+			</div>
+		</div>
+	</div>
+	<div style="position:relative;" id="welcome_video">
+		<!--<img id="welcome_img" class="img-responsive" src="./assets/images/cover_video.gif" alt="show view">-->
+		<video id="wonder_video" autoplay>
+			<source src="<?=base_url('assets/videos/wonder_swamp.webm') ?>" type="video/webm">
+			<source src="<?=base_url('assets/videos/wonder_swamp.mov') ?>" type="video/mp4">
+			<source src="<?=base_url('assets/videos/wonder_swamp.mov') ?>" type="video/webm">
+			<source src="<?=base_url('assets/videos/wonder_swamp.mov') ?>" type="video/ogg">
+
+		</video>
+		<span id="volume_control" style=" position:absolute; top:43%; left:45px; z-index: 100; color:white; cursor:pointer ">
+<!--svg icon no sound-->
+<img src="<?= base_url('assets/images/sound-on.svg') ?>">
+<!--//svg icon no sound-->
+</span>
+
+		<!-- image windwo center-->
+		<span id="center_camera" class="hide_mobile"><img style=" position:absolute; top:40%; left:48%; z-index: 100; color:white; cursor:pointer " src="<?= base_url('assets/images/center_window.png') ?>" alt=""></span>
+		<span id="center_camera_mobile" class="show_mobile hiden_el"><img style=" position:absolute; top:40%; left:48%; z-index: 100; color:white; cursor:pointer " src="<?= base_url('assets/images/play-h.svg') ?>" alt=""></span>
+		<!---->
+	</div>
+	<div id="welcome_footer">
+		<div id="foot_nav" class="row">
+			<div id="rec" class="col-sm-3 col-md-2 col-lg-2 ">
+				<i class="fa fa-battery-full" style="color:white;" aria-hidden="true"></i> <span class="boldT">38 min</span>
+				<span id="rec_abs" style=" position:absolute;  top:-45px; left:15px;"> <i class="fa  fa-circle" aria-hidden="true" style="color:red"></i> REC
+</span>
+			</div>
+			<div id="counter_video" class="col-xs-5 col-sm-3 col-sm-offset-2 col-md-2 col-md-offset-3 col-lg-offset-3 col-lg-2 lightT text-center">00 : 00 : <span id="video_sec">01</span></div>
+			<div class="col-xs-2 col-sm-3 col-sm-offset-1 col-md-offset-3 col-md-2 col-lg-offset-3 col-lg-2 text-right">
+				<a style="text-decoration: none; color:white;" href="
+<?=base_url('home') ?>">
+					<span id="menu_text" class="boldT" style="vertical-align: middle; padding-right: 60px;">MENU</span>
+					<!--menu svg-->
+					<span style=" position:absolute; top:0; right:15px;">
+					<img id="welcome_menu" src="<?= base_url('assets/images/menu.svg') ?>" height="50px" alt="main menu link">
+</span>
+				</a>
+				<!--menu svg-->
+			</div>
+
+			<!--mobile icons-->
+			<div class="col-xs-5 show_mobile hiden_el text-right">
+				<button style="border:none">
+					 <img class="welcome_icon" src="<?= base_url('assets/images/HD.svg') ?>"  alt="">
+				</button>
+				<button style="border:none">
+					 <img class="welcome_icon" src="<?= base_url('assets/images/camera.svg') ?>"  alt="">
+				</button>
+			</div>
+			<!---->
+		</div>
+
+	</div>
+	<div style="border-top:1px solid white; border-left: 1px solid white; top:20px;left:20px;" class="photo_border"></div>
+	<div style="border-top:1px solid white; border-right: 1px solid white; top:20px;right:20px;" class="photo_border"></div>
+	<div style="border-bottom:1px solid white; border-left: 1px solid white; bottom:20px;left:20px;" class="photo_border"></div>
+	<div style="border-bottom:1px solid white; border-right: 1px solid white; bottom:20px;right:20px;" class="photo_border"></div>
+	<script>
+		$(document).ready(function () {
+			var tempHeight;
+			tempHeight = $(window).height() - 243;
+			$("#welcome_video").css("height", tempHeight + "px");
+
+			$(window).resize(function () {
+				$this = $(this);
+				console.log("resize", $this);
+				console.log($this.width());
+				console.log("height", $this.height());
+				tempHeight = $this.height() - 240;
+				$("#welcome_video").css("height", tempHeight + "px");
+				// $('body').css('height', $this.height() +"px");
+				// if ($this.width() > 1750) {
+				// 	$('body').css('zoom', 1.25);
+				// 	console.log("zoom 1.1");
+				// 	console.log($this.width());
+				// } else {
+				// 	$('body').css('zoom', 1);
+				// 	console.log("zoom 1");
+				// 	console.log($this.width());
+				// }
+			})
+
+			var video = document.getElementById("wonder_video");
+			video.muted = true;
+
+			if ($(window).width() < 760) {
+				$(video).removeAttr("autoplay");
+				console.log("here");
+			}
+
+			$("#center_camera_mobile").click(function () {
+				video.play();
+			})
+
+			$("#volume_control").click(function () {
+				video.muted = !video.muted;
+				if (video.muted) {
+					$("#volume_control img").attr("src", "<?=base_url('assets/images/sound-on.svg') ?>");
+				}
+				else {
+					$("#volume_control img").attr("src", "<?=base_url('assets/images/sound-off.svg') ?>");
+				}
+
+			})
+
+			$('#welcome_menu').hover(
+				function () {
+					$(this).attr('src', "<?= base_url('assets/images/menu-h.svg') ?>");
+				},
+				function () {
+					$(this).attr('src', "<?= base_url('assets/images/menu.svg') ?>");
+				}
+			)
+
+			var pCounter = $("#video_sec");
+			video.onended = function () {
+				pCounter.text("00");
+				$("#center_camera_mobile img").attr('src',"<?= base_url('assets/images/play-h.svg') ?>");
+				video.play();
+				$("#center_camera_mobile img").attr('src',"<?= base_url('assets/images/center_window.png') ?>");
+			};
+
+			video.onplay = function () {
+				$("#center_camera_mobile img").attr('src',"<?= base_url('assets/images/center_window.png') ?>");
+				pCounter.text("00");
+
+			};
+			function blink() {
+				$('.fa-circle').delay(100).fadeTo(100, 0.5).delay(500).fadeTo(500, 1, blink);	
+			};
+
+			blink();
+
+			setInterval(function(){
+				counterVal = +pCounter.text();
+				console.log(counterVal);
+				if (++counterVal > 9) {
+					pCounter.text(counterVal);
+				}
+				else {
+					pCounter.text("0" + counterVal);
+				}
+			},1000)
+		})
+
+
+		// var sNewVal,
+		// 	pCounter = $("#video_sec"),
+		// 	counterVal = pCounter.text();
+
+		// console.log(counterVal);
+		// nCounterVal = +counterVal;
+		// setInterval(function () {
+
+		// }, 1000);
+	</script>
+
+</body>
+
+</html>
