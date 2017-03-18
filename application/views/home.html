@@ -9,7 +9,7 @@
 					<img src="<?= base_url('assets/images/logo.svg') ?>" alt="" height="150px">
 					<!--End-->
 				</div>
-				<div id="home_close" class="col-xs-2 col-xs-offset-8 col-sm-2 col-sm-offset-8 col-md-2 col-md-offset-8 col-lg-2 col-lg-offset-8 text-right">
+				<div id="home_close" class="col-xs-2 col-xs-offset-7 col-sm-2 col-sm-offset-8 col-md-2 col-md-offset-8 col-lg-2 col-lg-offset-8 text-right">
 					<a style="text-decoration:none; color:black;" href="
 <?=base_url('welcome') ?>">
 						<span>
@@ -160,7 +160,8 @@
 
 		})
 		var heightUnder1540 =  $(window).width() < 1550? 80 : 0;
-		tempHeight =  $(window).height() - 455 + heightUnder1540;
+		var heightMobile =  $(window).width() < 760? 60 : 0;
+		tempHeight =  $(window).height() - 455 + heightUnder1540 + heightMobile;
 		$(".pad40").css("height", tempHeight + "px");
 
 		$(window).resize(function () {
@@ -169,7 +170,8 @@
 			console.log($this.width());
 			console.log("height", $this.height());
 			heightUnder1540 =  $(window).width() < 1550? 80 : 0;
-			tempHeight =  $(window).height() - 455 + heightUnder1540;
+			heightMobile =  $(window).width() < 760? 60 : 0;
+			tempHeight =  $(window).height() - 455 + heightUnder1540 + heightMobile;
 			$(".pad40").css("height", tempHeight + "px");
 			// $('body').css('height', $this.height() +"px");
 			// if ($this.width() > 1750) {
