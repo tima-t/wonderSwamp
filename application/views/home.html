@@ -4,12 +4,12 @@
 		<div id="upper_air"></div>
 		<div id="home_body">
 			<div id="top-nav" class="row">
-				<div class="col-lg-2 col-lg-offset-2 ">
+				<div class="col-xs-2 col-sm-2 col-md-2 col-lg-2 ">
 					<!--Svg-->
 					<img src="<?= base_url('assets/images/logo.svg') ?>" alt="" height="150px">
 					<!--End-->
 				</div>
-				<div id="home_close" class="col-lg-2 col-lg-offset-5 text-right">
+				<div id="home_close" class="col-xs-2 col-xs-offset-8 col-sm-2 col-sm-offset-8 col-md-2 col-md-offset-8 col-lg-2 col-lg-offset-8 text-right">
 					<a style="text-decoration:none; color:black;" href="
 <?=base_url('welcome') ?>">
 						<span>
@@ -19,13 +19,13 @@
 				</div>
 			</div>
 			<div class="row pad40">
-				<div id="home_menu" class="col-lg-2 col-lg-offset-2">
+				<div id="home_menu" class="col-sm-2 col-md-2  col-lg-2 ">
 					<ul>
-						<li class="menu_buttons" data-name="work">Work</li>
-						<li class="menu_buttons" data-name="about">About</li>
-						<li class="menu_buttons" data-name="services">Services</li>
-						<li class="menu_buttons" data-name="contacts">Contacts</li>
-						<li class="menu_buttons" data-name="clients">Clients</li>
+						<li class="menu_buttons" data-name="work">WORK</li>
+						<li class="menu_buttons" data-name="about">ABOUT</li>
+						<li class="menu_buttons" data-name="services">SERVICES</li>
+						<li class="menu_buttons" data-name="contacts">CONTACTS</li>
+						<li class="menu_buttons" data-name="clients">CLIENTS</li>
 					</ul>
 				</div>
 
@@ -69,9 +69,9 @@
 				</div>
 
 
-				<div id="home_cont" class="col-lg-5 col-lg-offset-2">
+				<div id="home_cont" class=" hide_mobile col-sm-8 col-sm-offset-2 col-md-7 col-md-offset-3 col-lg-5 col-lg-offset-5">
 					<div class="vertical_content">seconds</div>
-					<b> <i class="fa fa-circle" aria-hidden="true" style="color:#f20909"></i> &nbsp;&nbsp;REC TIME</b>
+					<b> <i class="fa fa-circle" aria-hidden="true" style="color:#f20909"></i> REC TIME</b>
 					<br>
 					<b><span style="font-size:45pt " id="counter" >45 123 123 123</span>
 </b>
@@ -81,7 +81,7 @@
 				</div>
 			</div>
 			<div id="home_lang" class="row">
-				<div id=""  style="font-weight: 600" class="col-lg-2 col-lg-offset-2">ENGLISH</div>
+				<div id=""  style="font-weight: 600; font-size:16pt" class="col-lg-2 ">ENGLISH</div>
 			</div>
 		</div>
 
@@ -159,7 +159,8 @@
 			}
 
 		})
-		tempHeight =  $(window).height() - 490;
+		var heightUnder1540 =  $(window).width() < 1550? 80 : 0;
+		tempHeight =  $(window).height() - 455 + heightUnder1540;
 		$(".pad40").css("height", tempHeight + "px");
 
 		$(window).resize(function () {
@@ -167,7 +168,8 @@
 			console.log("resize", $this);
 			console.log($this.width());
 			console.log("height", $this.height());
-			tempHeight = $this.height() - 490 ;
+			heightUnder1540 =  $(window).width() < 1550? 80 : 0;
+			tempHeight =  $(window).height() - 455 + heightUnder1540;
 			$(".pad40").css("height", tempHeight + "px");
 			// $('body').css('height', $this.height() +"px");
 			// if ($this.width() > 1750) {
