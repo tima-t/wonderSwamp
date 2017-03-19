@@ -154,7 +154,6 @@ body{
 
 
 #work_sub{
-	padding-top: 20px;
 	height:100%;
 	border-left:1px solid #383F94;
 }
@@ -172,7 +171,6 @@ body{
 }
 
 #work_sub_sub{
-	padding-top: 20px;
 	height:100%;
 	border-left:1px solid #383F94;
 }
@@ -334,6 +332,12 @@ background: url(images/bg.jpg) no-repeat center center fixed;
 	}
  }
 
+@media (min-width:1201px) and (max-width:1400px) {
+	#work_sub{
+		margin-left:30px;
+	}
+ }
+
 @media (max-width: 1200px) { 
 	.photo_border{
 		width:350px;
@@ -346,6 +350,7 @@ background: url(images/bg.jpg) no-repeat center center fixed;
 		padding-left: 30px;
 		padding-right: 30px;
 	}	
+
  }
 
  @media (max-width: 760px) { 
