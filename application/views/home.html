@@ -36,18 +36,19 @@
 						<li>
 							<span><img src="<?= base_url('assets/images/phone.svg') ?>"  style="height:20pt" alt="phone"></span> Phone
 						</li>
-						<li> <span><img src="<?= base_url('assets/images/location.svg') ?>"  style="height:20pt" alt="phone"></span> Address 6 Vasil Levski blvrd Sofia</li>
+						<li> <span><img src="<?= base_url('assets/images/location.svg') ?>"  style="height:20pt" alt="phone"></span> Address 6 Vasil
+							Levski blvrd Sofia</li>
 						<li> <span><img src="<?= base_url('assets/images/mail.svg') ?>"  style="height:20pt" alt="phone"></span> E-mail:hello@wonderswamp.com</li>
 					</ul>
 					<a href="./contact/form" style="text-decoration: none;">
-					<span style="color:#f20909; font-size: 41pt;">SET UP A</span> <br>
-					<span style=" color: black; font-size: 56pt">MEETING </span>
-					<span <span style=" position:absolute; top:40%; right:16%;"><i style="font-size: 10em; color:#383F94" class="fa fa-2x fa-angle-right" aria-hidden="true"></i>
+						<span style="color:#f20909; font-size: 41pt;">SET UP A</span> <br>
+						<span style=" color: black; font-size: 56pt">MEETING </span>
+						<span <span style=" position:absolute; top:40%; right:16%;"><i style="font-size: 10em; color:#383F94" class="fa fa-2x fa-angle-right" aria-hidden="true"></i>
 					</a>
 </span>
 				</div>
 
-				<div id="work_sub" class="col-lg-3 " style="display:none">
+				<div id="work_sub" class="col-sm-offset-2  col-sm-3  col-md-3 col-lg-offset-0 col-lg-3 " style="display:none">
 					<ul>
 						<li class="menu_buttons" data-name="showreal">Showreal</li>
 						<li class="menu_buttons" data-name="case_stories">Case Stories</li>
@@ -55,7 +56,7 @@
 					</ul>
 				</div>
 
-				<div id="work_sub_sub" class="col-lg-3 " style="display:none">
+				<div id="work_sub_sub" class="col-sm-offset-1  col-sm-3 col-md-offset-0 col-md-3 col-lg-3 " style="display:none">
 					<ul>
 						<li class="menu_buttons" data-name="showreal">Shell</li>
 						<li class="menu_buttons" data-name="case_stories">Visa</li>
@@ -81,7 +82,7 @@
 				</div>
 			</div>
 			<div id="home_lang" class="row">
-				<div id=""  style="font-weight: 600; font-size:16pt" class="col-lg-2 ">ENGLISH</div>
+				<div id="" style="font-weight: 600; font-size:16pt" class="col-lg-2 ">ENGLISH</div>
 			</div>
 		</div>
 
@@ -104,8 +105,7 @@
 			pCounter.text(sNewVal);
 		}, 1000);
 
-
-
+		var backMobile = $('<a href="./home" style="text-decoration: none">&nbsp; <span class="boldT" style="font-size: 18pt; color:#f20909"><</span></a>');
 		//nav menu
 
 		$(".menu_buttons").click(function () {
@@ -120,8 +120,15 @@
 			console.log($(this).attr("data-name"));
 			switch ($(this).attr("data-name")) {
 				case "work":
-					console.log("here");
-					$("#work_sub").fadeIn("slow");
+					//mobile version
+					if ($(window).width() < 760) {
+						$("#work_sub > ul >li").css("padding-left", "0");
+						$("#home_menu").empty().append(backMobile);
+						$("#home_menu").append($("#work_sub").css("border", "none"));
+					}
+
+					 $("#work_sub").fadeIn("slow");
+
 					break;
 
 				case "about":
@@ -144,6 +151,13 @@
 					break;
 
 				case "case_stories":
+					if ($(window).width() < 760) {
+						$("#work_sub_sub > ul >li").css("padding-left", "0");
+						$("#home_menu").empty().append(backMobile);
+						$("#home_menu").append($("#work_sub_sub").css("border", "none"));
+					}
+
+					$("#work_sub").fadeIn("slow");
 					$("#work_sub").show();
 					$("#work_sub_sub").fadeIn("slow");
 
@@ -153,15 +167,12 @@
 					console.log("here YouTube");
 					window.location.href = "https://www.youtube.com/watch?v=JGwWNGJdvx8";
 					break;
-
-
-					break;
 			}
 
 		})
-		var heightUnder1540 =  $(window).width() < 1550? 80 : 0;
-		var heightMobile =  $(window).width() < 760? 60 : 0;
-		tempHeight =  $(window).height() - 455 + heightUnder1540 + heightMobile;
+		var heightUnder1540 = $(window).width() < 1550 ? 80 : 0;
+		var heightMobile = $(window).width() < 760 ? 60 : 0;
+		tempHeight = $(window).height() - 455 + heightUnder1540 + heightMobile;
 		$(".pad40").css("height", tempHeight + "px");
 
 		$(window).resize(function () {
@@ -169,9 +180,9 @@
 			console.log("resize", $this);
 			console.log($this.width());
 			console.log("height", $this.height());
-			heightUnder1540 =  $(window).width() < 1550? 80 : 0;
-			heightMobile =  $(window).width() < 760? 60 : 0;
-			tempHeight =  $(window).height() - 455 + heightUnder1540 + heightMobile;
+			heightUnder1540 = $(window).width() < 1550 ? 80 : 0;
+			heightMobile = $(window).width() < 760 ? 60 : 0;
+			tempHeight = $(window).height() - 455 + heightUnder1540 + heightMobile;
 			$(".pad40").css("height", tempHeight + "px");
 			// $('body').css('height', $this.height() +"px");
 			// if ($this.width() > 1750) {
@@ -184,7 +195,6 @@
 			// 	console.log($this.width());
 			// }
 		})
-
 	</script>
 </body>
 
