@@ -30,7 +30,7 @@
 				</div>
 
 
-				<div id="contacts_sub" class="col-lg-4 " style="display:none">
+				<div id="contacts_sub" class="col-sm-offset-2  col-sm-8  col-md-6 col-lg-6 " style="display:none">
 					<ul>
 						<li>FOR MORE INFORMATION</li>
 						<li>
@@ -38,12 +38,12 @@
 						</li>
 						<li> <span><img src="<?= base_url('assets/images/location.svg') ?>"  style="height:20pt" alt="phone"></span> Address 6 Vasil
 							Levski blvrd Sofia</li>
-						<li> <span><img src="<?= base_url('assets/images/mail.svg') ?>"  style="height:20pt" alt="phone"></span> E-mail:hello@wonderswamp.com</li>
+						<li> <span><img src="<?=base_url('assets/images/mail.svg')?>"  style="height:20pt" alt="phone"></span> E-mail:hello@wonderswamp.com</li>
 					</ul>
 					<a href="./contact/form" style="text-decoration: none;">
 						<span style="color:#f20909; font-size: 41pt;">SET UP A</span> <br>
 						<span style=" color: black; font-size: 56pt">MEETING </span>
-						<span <span style=" position:absolute; top:40%; right:16%;"><i style="font-size: 10em; color:#383F94" class="fa fa-2x fa-angle-right" aria-hidden="true"></i>
+						<span style=" position:absolute; top:60%; left:360px;"><img style="height:90pt;" src="<?=base_url('assets/images/next.png')?>" alt="">
 					</a>
 </span>
 				</div>
@@ -120,6 +120,8 @@
 			console.log($(this).attr("data-name"));
 			switch ($(this).attr("data-name")) {
 				case "work":
+					$("#home_lang").css("visibility","visible");
+					$("#home_lang").show();
 					//mobile version
 					if ($(window).width() < 760) {
 						$("#work_sub > ul >li").css("padding-left", "0");
@@ -140,7 +142,15 @@
 					break;
 
 				case "contacts":
+					if ($(window).width() < 760) {
+						$("#work_sub > ul >li").css("padding-left", "0");
+						$("#home_menu").empty().append(backMobile);
+						$("#home_menu").append($("#contacts_sub").css("border", "none"));
+					}
+
 					$("#contacts_sub").fadeIn("slow");
+					$("#home_lang").css("visibility","hidden");
+					
 					break;
 
 				case "clients":
@@ -172,7 +182,7 @@
 		})
 		var heightUnder1540 = $(window).width() < 1550 ? 80 : 0;
 		var heightMobile = $(window).width() < 760 ? 60 : 0;
-		tempHeight = $(window).height() - 455 + heightUnder1540 + heightMobile;
+		tempHeight = $(window).height() - 355 + heightUnder1540 + heightMobile;
 		$(".pad40").css("height", tempHeight + "px");
 
 		$(window).resize(function () {
@@ -182,7 +192,7 @@
 			console.log("height", $this.height());
 			heightUnder1540 = $(window).width() < 1550 ? 80 : 0;
 			heightMobile = $(window).width() < 760 ? 60 : 0;
-			tempHeight = $(window).height() - 455 + heightUnder1540 + heightMobile;
+			tempHeight = $(window).height() - 355 + heightUnder1540 + heightMobile;
 			$(".pad40").css("height", tempHeight + "px");
 			// $('body').css('height', $this.height() +"px");
 			// if ($this.width() > 1750) {
